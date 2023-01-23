@@ -1,6 +1,6 @@
 # dockerfile_tractolearn
 
-Tractography learning. 
+Dockerfile for the tractolearn project.
 
 - Main python project repository: https://github.com/scil-vital/tractolearn
 - FIESTA NextFlow: https://github.com/scil-vital/fiesta
