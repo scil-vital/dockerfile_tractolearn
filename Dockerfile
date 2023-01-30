@@ -4,16 +4,19 @@ ENV ANTSPATH="/opt/ants-2.3.4/"
 ENV PATH="/opt/ants-2.3.4:$PATH"
 ENV TZ=America/Toronto
 
-WORKDIR .
+WORKDIR /home/fdumais/Desktop/Acuity/20221219_Bundling/20221219_FIESTA/final_tractolearn/tractolearn
+ADD  configs /tractolearn/configs
+ADD  doc /tractolearn/doc
+
 ADD  scripts /tractolearn/scripts/
 ADD  tractolearn /tractolearn/tractolearn/
-ADD  requirements.txt /tractolearn/requirements.txt
+ADD  requirements /tractolearn/requirements
+
 ADD  setup.cfg /tractolearn/setup.cfg
 ADD  setup_helpers.py /tractolearn/setup_helpers.py
-ADD  pyproject.toml /tractolearn/pyproject.toml
 ADD  setup.py /tractolearn/setup.py
 ADD  README.md /tractolearn/README.md
-  
+ADD  LICENSE /tractolearn/LICENSE
 ADD  fonts /usr/share/fonts/
 
 RUN apt-get update -qq && \
@@ -50,17 +53,22 @@ RUN rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt/ants-2.3.4 && \
     curl -fsSL https://dl.dropbox.com/s/gwf51ykkk5bifyj/ants-Linux-centos6_x86_64-v2.3.4.tar.gz \
         | tar -xz -C /opt/ants-2.3.4 --strip-components 1
-        
+
 RUN pip3.8 install --upgrade pickle5
 
 RUN cd /tractolearn && \
-    pip3.8 install -r requirements.txt && \
-    pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html && \
-    pip3.8 install -e . && \
-    pip install --upgrade numpy
+    pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+
+RUN cd /tractolearn && pip3.8 install -e . 
+
+RUN pip install numpy==1.23.*
 
 RUN chmod +x /tractolearn/scripts/*
 
 ENV DISPLAY=:1
+
+RUN Xvfb :1 -screen 1920x1080x24 > /dev/null 2>1 &
+# RUN pip3.8 install pytest
+# RUN python3.8 -m pytest -svv fury
 
 # RUN apt-get install -y mesa-utils
