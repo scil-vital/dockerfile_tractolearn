@@ -46,7 +46,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3.8 get-pip.py && \
     pip3.8 install --upgrade pip
 
-RUN pip3.8 install git+https://github.com/scilus/scilpy.git@master
+RUN pip3.8 install git+https://github.com/scilus/scilpy.git@1.2.2
 
 RUN rm -rf /var/lib/apt/lists/* && \
     echo "Downloading ANTs ..." && \
@@ -59,7 +59,7 @@ RUN pip3.8 install --upgrade pickle5
 RUN cd /tractolearn && \
     pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 
-RUN cd /tractolearn && pip3.8 install -e . 
+RUN cd /tractolearn && pip3.8 install -e .
 
 RUN pip install numpy==1.23.*
 
