@@ -3,6 +3,7 @@ FROM nvidia/cuda:11.8.0-base-ubuntu20.04
 ENV ANTSPATH="/opt/ants-2.3.4/"
 ENV PATH="/opt/ants-2.3.4:$PATH"
 ENV TZ=America/Toronto
+ENV SETUPTOOLS_SCM_PRETEND_VERSION="0.1.0"
 
 WORKDIR /home/fdumais/Desktop/Acuity/20221219_Bundling/20221219_FIESTA/final_tractolearn/tractolearn
 
