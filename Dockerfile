@@ -5,24 +5,13 @@ ENV PATH="/opt/ants-2.3.4:$PATH"
 ENV TZ=America/Toronto
 ENV SETUPTOOLS_SCM_PRETEND_VERSION="0.1.0"
 
-WORKDIR /home/fdumais/Desktop/Acuity/20221219_Bundling/20221219_FIESTA/final_tractolearn/tractolearn
-
-ADD  configs /tractolearn/configs
-ADD  doc /tractolearn/doc
-ADD  fonts /usr/share/fonts/
-ADD  LICENSE /tractolearn/LICENSE
-ADD  pyproject.toml /tractolearn/pyproject.toml
-ADD  README.md /tractolearn/README.md
-ADD  scripts /tractolearn/scripts/
-ADD  setup.cfg /tractolearn/setup.cfg
-ADD  tox.ini /tractolearn/tox.ini
-ADD  tractolearn /tractolearn/tractolearn/
-
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
        ca-certificates \
        curl \
        git
+
+RUN git clone https://github.com/scil-vital/tractolearn.git /tractolearn
 
 RUN apt install -y jq
 
@@ -61,6 +50,6 @@ RUN pip3.8 install -U numpy==1.23.*
 
 RUN chmod +x /tractolearn/scripts/*
 
+# To manage fury in headless mode
 ENV DISPLAY=:1
-
 RUN Xvfb :1 -screen 1920x1080x24 > /dev/null 2>1 &
