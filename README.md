@@ -1,5 +1,7 @@
 # dockerfile_tractolearn
 
+[![Build Docker image](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml/badge.svg?branch=main)](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml?query=branch%3Amain)
+
 Dockerfile for the tractolearn project.
 
 - Main python project repository: https://github.com/scil-vital/tractolearn
