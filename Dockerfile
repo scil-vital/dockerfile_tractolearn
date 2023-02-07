@@ -32,7 +32,7 @@ RUN apt-get install -y python3.8 python3.8-dev python3.8-distutils python3.8-ven
 
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3.8 get-pip.py && \
-    pip3.8 install --upgrade pip
+    pip install --upgrade pip
 
 RUN rm -rf /var/lib/apt/lists/* && \
     echo "Downloading ANTs ..." && \
@@ -43,9 +43,9 @@ RUN rm -rf /var/lib/apt/lists/* && \
 RUN pip install -U pip
 RUN cd /tractolearn && pip install -e .
 
-RUN pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+RUN pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 
-RUN pip3.8 install -U numpy==1.23.*
+RUN pip install -U numpy==1.23.*
 
 RUN chmod +x /tractolearn/scripts/*
 
