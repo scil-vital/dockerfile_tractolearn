@@ -43,8 +43,7 @@ RUN rm -rf /var/lib/apt/lists/* && \
 RUN pip install -U pip
 RUN cd /tractolearn && pip install -e .
 
-RUN cd /tractolearn && \
-    pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+RUN pip3.8 install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html
 
 RUN pip3.8 install -U numpy==1.23.*
 
