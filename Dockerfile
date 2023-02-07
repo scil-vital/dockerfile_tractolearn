@@ -5,6 +5,10 @@ ENV PATH="/opt/ants-2.3.4:$PATH"
 ENV TZ=America/Toronto
 ENV SETUPTOOLS_SCM_PRETEND_VERSION="0.1.0"
 
+# SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL required due to
+# some dependency listing "scikit-learn" as "sklearn" in its dependencies
+ENV SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+
 RUN apt-get update -qq && \
     apt-get install -y -q --no-install-recommends \
        ca-certificates \
