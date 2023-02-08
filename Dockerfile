@@ -52,6 +52,6 @@ RUN pip install -U numpy==1.23.*
 
 RUN chmod +x /tractolearn/scripts/*
 
+# To use fury in headless mode
 ENV DISPLAY=:1
-
 RUN Xvfb :1 -screen 1920x1080x24 > /dev/null 2>1 &
