@@ -1,4 +1,4 @@
-# dockerfile_tractolearn
+# tractolearn Dockerfile
 
 [![Build Docker image](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml/badge.svg?branch=main)](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml?query=branch%3Amain)
 
