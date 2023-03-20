@@ -18,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install BLAS and LAPACK for the SPAMS Python package
+      run: sudo apt-get -y install libblas-dev liblapack-dev
+
     - name: Check out repository
       uses: actions/checkout@v3
 
