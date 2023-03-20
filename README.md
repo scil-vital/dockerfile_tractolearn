@@ -1,6 +1,7 @@
 # dockerfile_tractolearn
 
 [![Build Docker image](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml/badge.svg?branch=main)](https://github.com/scil-vital/dockerfile_tractolearn/actions/workflows/build_docker_image.yml?query=branch%3Amain)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/felixdumais1/tractolearn-docker)](https://hub.docker.com/r/felixdumais1/tractolearn-docker/tags)
 
 Dockerfile for the tractolearn project.
 
