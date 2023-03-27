@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main']
   pull_request:
-    branches: ['main']
+    branches: ['*']
 
 env:
   DOCKER_IMAGE_NAME: felixdumais1/tractolearn-docker
@@ -37,3 +37,5 @@ jobs:
 
     - name: Pushing Docker image
       run: docker push ${{ env.DOCKER_IMAGE_NAME }}:latest
+      with: 
+        push: true
